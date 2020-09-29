@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<iskola>
+	<iskola_tanar kod="">
+		<nev></nev>
+		<szak></szak>
+	</iskola_tanar>
+	<iskola_tanar kod="">
+		<nev></nev>
+		<szak></szak>
+	</iskola_tanar>
+	<iskola_tantargy kod="" oktato="">
+		<tnev></tnev>
+		<osztaly></osztaly>
+	</iskola_tantargy>
+</iskola>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE iskola [
+<!ELEMENT iskola (iskola_tanar+, iskola_tantargy)>
+<!ELEMENT iskola_tanar (nev, szak)>
+<!ATTLIST iskola_tanar kod ID #REQUIRED>
+<!ELEMENT nev (#PCDATA)>
+<!ELEMENT szak (#PCDATA)>
+<!ELEMENT iskola_tantargy (tnev, osztaly)>
+<!ATTLIST iskola_tantargy kod ID #REQUIRED>
+<!ATTLIST iskola_tantargy oktato IDREF #REQUIRED>
+<!ELEMENT tnev (#PCDATA)>
+<!ELEMENT osztaly (#PCDATA)>
+]>
+
+<iskola>
+	<iskola_tanar kod="">
+		<nev></nev>
+		<szak></szak>
+	</iskola_tanar>
+	<iskola_tanar kod="">
+		<nev></nev>
+		<szak></szak>
+	</iskola_tanar>
+	<iskola_tantargy kod="" oktato="">
+		<tnev></tnev>
+		<osztaly></osztaly>
+	</iskola_tantargy>
+</iskola>

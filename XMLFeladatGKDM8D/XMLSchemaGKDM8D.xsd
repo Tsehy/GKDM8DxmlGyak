@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:complexType name="playerType">
+	<xs:sequence>
+		<xs:element name="username" type="xs:string"/>
+		<xs:element name="realname" type="xs:string"/>
+		<xs:element name="registerDate" type="xs:date"/>
+	</xs:sequence>
+	<xs:attribute name="player_id" type="xs:integer" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="cardType">
+	<xs:sequence>
+		<xs:element name="cardName" type="xs:string"/>
+		<xs:element name="manaCost" type="xs:string"/>
+		<xs:element name="type" type="xs:string"/>
+	</xs:sequence>
+	<xs:attribute name="card_id" type="xs:integer" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="deckType">
+	<xs:sequence>
+		<xs:element name="format" type="xs:string"/>
+		<xs:element name="deckName" type="xs:string"/>
+		<xs:element name="description" type="xs:string"/>
+		<xs:element name="card" maxOccurs="unbounded">
+			<xs:complexType>
+				<xs:attribute name="card_id" type="xs:integer" use="required"/>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+	<xs:attribute name="deck_id" type="xs:integer" use="required"/>
+	<xs:attribute name="player_id" type="xs:integer" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="gameType">
+	<xs:sequence>
+		<xs:element name="format" type="xs:string"/>
+		<xs:element name="duration" type="xs:time"/>
+		<xs:element name="players">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="player" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:attribute name="player_id" type="xs:integer" use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="number" type="xs:integer" use="required"/>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+	<xs:attribute name="game_id" type="xs:integer" use="required"/>
+</xs:complexType>
+
+<xs:element name="mtg">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="player" type="playerType" maxOccurs="unbounded"/>
+			<xs:element name="card" type="cardType" maxOccurs="unbounded"/>
+			<xs:element name="deck" type="deckType" maxOccurs="unbounded"/>
+			<xs:element name="game" type="gameType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--kulcsok -->
+	<xs:key name="key1">
+		<xs:selector xpath="player"/>
+		<xs:field xpath="@player_id"/>
+	</xs:key>
+	<xs:key name="key2">
+		<xs:selector xpath="card"/>
+		<xs:field xpath="@card_id"/>
+	</xs:key>
+	<xs:key name="key3">
+		<xs:selector xpath="deck"/>
+		<xs:field xpath="@deck_id"/>
+	</xs:key>
+	<xs:key name="key4">
+		<xs:selector xpath="game"/>
+		<xs:field xpath="@game_id"/>
+	</xs:key>
+	<xs:keyref name="keyref1" refer="key1">
+		<xs:selector xpath="deck"/>
+		<xs:field xpath="@player_id"/>
+	</xs:keyref>
+	<xs:keyref name="keyref2" refer="key1">
+		<xs:selector xpath="game/players/player"/>
+		<xs:field xpath="@player_id"/>
+	</xs:keyref>
+	<xs:keyref name="keyref3" refer="key2">
+		<xs:selector xpath="deck/card"/>
+		<xs:field xpath="@card_id"/>
+	</xs:keyref>
+</xs:element>
+
+</xs:schema>

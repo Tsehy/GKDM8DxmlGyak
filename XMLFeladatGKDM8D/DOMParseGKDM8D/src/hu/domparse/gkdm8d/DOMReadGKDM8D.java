@@ -24,8 +24,10 @@ public class DOMReadGKDM8D
 			{
 				try
 				{
+					//fájl beolvasása
 					Document document = builder.parse("XMLGKDM8D.xml");
 					Element rootNode = document.getDocumentElement();
+					//kiíratás
 					printNode(rootNode, "", rootNode.getNodeName());
 				}
 				catch(SAXException e)
@@ -44,9 +46,10 @@ public class DOMReadGKDM8D
 		}	
 	}	
 
-	//kiírató függvény
+	//kiírató föggvény
 	public static void printNode(Node rootNode, String spacer, String rootName)
 	{
+		//csak az element-eket akarjuk kiírni
 		if(rootNode.getNodeType() == Node.ELEMENT_NODE)
 		{
 			if(rootNode.getParentNode().getNodeName().equals(rootName))
@@ -70,7 +73,8 @@ public class DOMReadGKDM8D
 	{
 		NamedNodeMap attributeList = mainNode.getAttributes();
         String attributes = " " + attributeList.item(0).getNodeName() + ":" + attributeList.item(0).getNodeValue();
-        for(int i = 1; i < attributeList.getLength(); i++)
+        //összefűzés string-be
+		for(int i = 1; i < attributeList.getLength(); i++)
         {
             Node attribute = attributeList.item(i);
             attributes += (", " + attribute.getNodeName() + ":" + attribute.getNodeValue());

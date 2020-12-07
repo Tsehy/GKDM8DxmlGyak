@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="XMLSchemaGKDM8D.xsl"?>
+
+<mtg>
+	<player player_id="01">
+		<username>Tsehy</username>
+		<realname>Winch Eszter</realname>
+		<registerDate>2020-05-28</registerDate>
+	</player>
+	<player player_id="02">
+		<username>Wass</username>
+		<realname>Zsíros B. Ödön</realname>
+		<registerDate>2019-01-01</registerDate>
+	</player>
+	<player player_id="03">
+		<username>Mate77</username>
+		<realname>Fá Zoltán</realname>
+		<registerDate>1969-07-13</registerDate>
+	</player>
+	<card card_id="01">
+		<cardName>Solar Blaze</cardName>
+		<manaCost>2RW</manaCost>
+		<type>Sorcery</type>
+	</card>
+	<card card_id="02">
+		<cardName>Lightning Bolt</cardName>
+		<manaCost>R</manaCost>
+		<type>Instant</type>
+	</card>
+	<card card_id="03">
+		<cardName>Syr Konrad, the Grim</cardName>
+		<manaCost>3BB</manaCost>
+		<type>Legendary Creature - Human Knight</type>
+	</card>
+	<card card_id="04">
+		<cardName>Chandra, Flame's Fury</cardName>
+		<manaCost>4RR</manaCost>
+		<type>Legendary Planeswalker - Chandra</type>
+	</card>
+	<card card_id="05">
+		<cardName>Colossal Dreadmaw</cardName>
+		<manaCost>4GG</manaCost>
+		<type>Creature - Dinosaur</type>
+	</card>
+	<card card_id="06">
+		<cardName>Arclight Phoenix</cardName>
+		<manaCost>3R</manaCost>
+		<type>Creature - Phoenix</type>
+	</card>
+	<card card_id="07">
+		<cardName>Opt</cardName>
+		<manaCost>U</manaCost>
+		<type>Instant</type>
+	</card>
+	<card card_id="08">
+		<cardName>Kenrith, the Returned King</cardName>
+		<manaCost>4W</manaCost>
+		<type>Legendary Creature - Human Noble</type>
+	</card>
+	<card card_id="09">
+		<cardName>Ajani's Pridemate</cardName>
+		<manaCost>1W</manaCost>
+		<type>Creature - Cat</type>
+	</card>
+	<deck deck_id="01" player_id="01">
+		<format>Commander</format>
+		<deckName>You will die</deckName>
+		<description>Syr Konrad self mill EDH</description>
+		<card card_id="03"/>
+		<card card_id="02"/>
+		<card card_id="06"/>
+		<card card_id="04"/>
+	</deck>
+	<deck deck_id="02" player_id="01">
+		<format>Standard</format>
+		<deckName>Blazing Fire</deckName>
+		<description>Solar Blaze and Chandra deck 4fun</description>
+		<card card_id="01"/>
+		<card card_id="01"/>
+		<card card_id="01"/>
+		<card card_id="01"/>
+		<card card_id="04"/>
+		<card card_id="04"/>
+	</deck>
+	<deck deck_id="03" player_id="03">
+		<format>Commander</format>
+		<deckName>Broken Kenrith</deckName>
+		<description>Kenrith, but not budget</description>
+		<card card_id="08"/>
+		<card card_id="07"/>
+		<card card_id="05"/>
+	</deck>
+	<deck deck_id="04" player_id="02">
+		<format>Standard</format>
+		<deckName>We are the dinosaurs</deckName>
+		<description>marching, marching</description>
+		<card card_id="05"/>
+		<card card_id="05"/>
+		<card card_id="05"/>
+		<card card_id="05"/>
+	</deck>
+	<game game_id="01">
+		<format>Commander</format>
+		<duration>00:35:12</duration>
+		<players number="2">
+			<player player_id="01"/>
+			<player player_id="02"/>
+		</players>
+	</game>
+	<game game_id="02">
+		<format>Standard</format>
+		<duration>00:12:07</duration>
+		<players number="2">
+			<player player_id="01"/>
+			<player player_id="02"/>
+		</players>
+	</game>
+	<game game_id="03">
+		<format>Chaos</format>
+		<duration>01:21:56</duration>
+		<players number="3">
+			<player player_id="01"/>
+			<player player_id="02"/>
+			<player player_id="03"/>
+		</players>
+	</game>
+</mtg>

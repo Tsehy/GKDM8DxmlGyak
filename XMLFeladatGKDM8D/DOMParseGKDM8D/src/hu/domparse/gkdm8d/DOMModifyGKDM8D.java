@@ -22,10 +22,12 @@ public class DOMModifyGKDM8D
 {
 	public static void main(String[] args)
 	{
+		//keresett elem, és az új adat
 		String parentName = "card";
 		String nodeName = "cardName";
 		String newValue = "Infuriate";
 		String id = "02";
+		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
 		try
 		{
@@ -34,10 +36,13 @@ public class DOMModifyGKDM8D
 			{
 				try
 				{
+					//dokumentum beolvasása
 					File xmlFile = new File("XMLGKDM8D.xml");
 					Document document = builder.parse(xmlFile);
 					Element rootNode = document.getDocumentElement();
+					//keresőfüggvény meghívása
 					searchParentNode(rootNode, parentName, nodeName, id, newValue);
+					//dokumentum módosítása
 					modifyDocument(document, xmlFile);
 					
 				}
@@ -58,13 +63,15 @@ public class DOMModifyGKDM8D
 
 	}
 	
-	//Szülő megkeresése
+	//szülő megkeresése
 	public static void searchParentNode(Node rootNode, String parentName, String nodeName, String id, String newValue)
 	{
+		//csak az element-eken belül keresünk
 		if(rootNode.getNodeType() == Node.ELEMENT_NODE)
 		{
 			if((rootNode.getNodeName().equals(parentName)))
 			{
+				//id lekérdezése
 				NamedNodeMap attributeList = rootNode.getAttributes();
 				if(attributeList.item(0).getNodeValue().equals(id))
 				{
@@ -80,6 +87,7 @@ public class DOMModifyGKDM8D
 	//node megkeresése és adatcsere
 	public static void searchNode(Node rootNode, String nodeName, String newValue)
 	{
+		//csak az element-eken belül keresünk
 		if(rootNode.getNodeType() == Node.ELEMENT_NODE)
 		{
 			if((rootNode.getNodeName().equals(nodeName)))
